@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>One-Tap Sensi Hub & Pro Master Setup (2026)</title>
+  <title>Pro One-Tap Sensi Hub & Master Setup (2026)</title>
+  <meta name="description" content="Free Fire headshot sensitivity settings on 0-200 scale and Pro VIP master guide PDF download.">
   <style>
     :root {
       --bg-dark: #0a0e17;
@@ -16,86 +17,237 @@
       --text-muted: #94a3b8;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: var(--bg-dark); color: var(--text-main); display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 24px 16px; }
-    .container { max-width: 480px; width: 100%; display: flex; flex-direction: column; gap: 20px; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px 16px;
+    }
+
+    .container {
+      max-width: 480px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
     /* HEADER */
-    .header-box { text-align: center; }
-    .badge { display: inline-block; background: var(--accent-red); color: #fff; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 50px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
-    h1 { font-size: 22px; font-weight: 800; }
-    p.sub { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+    .header-box {
+      text-align: center;
+    }
 
-    /* SECTION 1: FREE SENSI */
-    .section-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-    .section-title { font-size: 14px; font-weight: 700; color: var(--accent-green); text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
-    .stat-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; border-bottom: 1px solid #1a2438; }
-    .stat-row:last-child { border-bottom: none; }
-    .stat-val { font-weight: 700; color: #fff; }
+    .badge {
+      display: inline-block;
+      background: var(--accent-red);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    p.sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* SECTION 1: FREE SENSI (0-200 SCALE) */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-green);
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 14px;
+      border-bottom: 1px solid #1a2438;
+    }
+
+    .stat-row:last-child {
+      border-bottom: none;
+    }
+
+    .stat-val {
+      font-weight: 700;
+      color: #fff;
+    }
 
     /* SECTION 2: PRO PDF (LOCKED) */
-    .pro-card { background: linear-gradient(180deg, #182238 0%, #111827 100%); border: 1.5px solid var(--accent-gold); border-radius: 16px; padding: 22px 20px; text-align: center; }
-    .pro-badge { display: inline-block; background: var(--accent-gold); color: #000; font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 50px; text-transform: uppercase; margin-bottom: 10px; }
-    .pro-card h2 { font-size: 18px; margin-bottom: 8px; }
-    .pro-card p { font-size: 13px; color: var(--text-muted); line-height: 1.4; margin-bottom: 16px; }
+    .pro-card {
+      background: linear-gradient(180deg, #182238 0%, #111827 100%);
+      border: 1.5px solid var(--accent-gold);
+      border-radius: 16px;
+      padding: 22px 20px;
+      text-align: center;
+    }
 
-    .pdf-features { text-align: left; background: rgba(0,0,0,0.25); border-radius: 10px; padding: 12px 14px; margin-bottom: 18px; }
-    .pdf-item { font-size: 13px; color: #cbd5e1; margin-bottom: 6px; display: flex; align-items: center; }
-    .pdf-item:last-child { margin-bottom: 0; }
-    .pdf-item::before { content: "📄"; margin-right: 8px; font-size: 13px; }
+    .pro-badge {
+      display: inline-block;
+      background: var(--accent-gold);
+      color: #000;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
 
-    .btn-unlock { width: 100%; background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #000; font-weight: 800; font-size: 15px; padding: 14px; border: none; border-radius: 10px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); transition: transform 0.1s ease; }
-    .btn-unlock:active { transform: scale(0.98); }
-    .notice { font-size: 11px; color: var(--text-muted); margin-top: 10px; }
+    .pro-card h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .pro-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .pdf-features {
+      text-align: left;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+    }
+
+    .pdf-item {
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+    }
+
+    .pdf-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .pdf-item::before {
+      content: "📄";
+      margin-right: 8px;
+      font-size: 13px;
+    }
+
+    .btn-unlock {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #000;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+      transition: transform 0.1s ease, filter 0.2s ease;
+    }
+
+    .btn-unlock:active {
+      transform: scale(0.98);
+    }
+
+    .btn-unlock:hover {
+      filter: brightness(1.05);
+    }
+
+    .notice {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <div class="header-box">
-      <span class="badge">🔥 2026 Patch Verified</span>
+      <span class="badge">🔥 0–200 Slider Patch</span>
       <h1>Headshot Sensitivity Hub</h1>
-      <p class="sub">Free on-page settings + Complete Pro Optimization PDF</p>
+      <p class="sub">Free On-Page Calibration + Full Device VIP Blueprint</p>
     </div>
 
-    <!-- 1. FREE LIVE SENSI SECTION (NO LOCK) -->
+    <!-- 1. FREE LIVE SENSI (0-200 SCALE) -->
     <div class="section-card">
       <div class="section-title">
-        <span>⚡ Free General Sensi</span>
-        <span style="font-size: 11px; color: var(--accent-green);">Direct Access</span>
+        <span>⚡ Balanced Base Sensi (0–200)</span>
+        <span style="font-size: 11px; color: var(--accent-green);">Direct View</span>
       </div>
-      <div class="stat-row"><span>General Sensitivity:</span><span class="stat-val">99</span></div>
-      <div class="stat-row"><span>Red Dot:</span><span class="stat-val">95</span></div>
-      <div class="stat-row"><span>2x Scope:</span><span class="stat-val">93</span></div>
-      <div class="stat-row"><span>4x Scope:</span><span class="stat-val">89</span></div>
-      <div class="stat-row"><span>Sniper Scope:</span><span class="stat-val">58</span></div>
-      <div class="stat-row"><span>Fire Button Size:</span><span class="stat-val">42% (Bottom Right)</span></div>
+      <div class="stat-row"><span>General Sensitivity:</span><span class="stat-val">182</span></div>
+      <div class="stat-row"><span>Red Dot:</span><span class="stat-val">178</span></div>
+      <div class="stat-row"><span>2x Scope:</span><span class="stat-val">168</span></div>
+      <div class="stat-row"><span>4x Scope:</span><span class="stat-val">152</span></div>
+      <div class="stat-row"><span>Sniper Scope:</span><span class="stat-val">98</span></div>
+      <div class="stat-row"><span>Free Look:</span><span class="stat-val">135</span></div>
+      <div class="stat-row"><span>Fire Button Size:</span><span class="stat-val">44% (Bottom Right)</span></div>
     </div>
 
-    <!-- 2. PRO PDF SECTION -->
+    <!-- 2. PRO PDF (MONETIZED VIA LITESHORT) -->
     <div class="pro-card">
       <span class="pro-badge">⭐ VIP Guide (PDF)</span>
-      <h2>Download Complete Pro Master Guide</h2>
-      <p>Unlock the step-by-step master PDF with detailed diagrams, custom HUD positioning, and device-specific DPI calibration.</p>
+      <h2>Download Full Pro Device Master Pack</h2>
+      <p>Unlock the complete guide calibrated for RAM tiers, DPI sync, and rotation drag techniques on the 0–200 slider.</p>
 
       <div class="pdf-features">
-        <div class="pdf-item">2-Finger & 3-Finger Pro HUD Layout Diagrams</div>
-        <div class="pdf-item">Exact DPI Settings for 2GB, 3GB, 4GB & 6GB Phones</div>
-        <div class="pdf-item">"J-Drag" & "Straight Drag" Headshot Angle Blueprint</div>
-        <div class="pdf-item">Graphic config to lock steady 60 FPS without lag</div>
+        <div class="pdf-item">2GB, 3GB, 4GB, 6GB & 8GB+ Specific 200-Scale Tables</div>
+        <div class="pdf-item">Safe Phone DPI Configuration (390–540)</div>
+        <div class="pdf-item">Sit-Up Gloo Wall & 3-Finger Custom HUD Map</div>
+        <div class="pdf-item">"J-Drag" Technique for Shotguns & SMGs</div>
       </div>
 
       <button class="btn-unlock" onclick="unlockProPDF()">
-        🔓 Unlock & Download Master PDF
+        🔓 Unlock & Download Pro PDF
       </button>
-      <p class="notice">Updated for the latest game version.</p>
+      <p class="notice">Click to complete verification and start instant download.</p>
     </div>
   </div>
 
   <script>
     function unlockProPDF() {
-      // Temporary placeholder alert until you set your download link
-      alert("Pro PDF Download link will be active soon!");
+      window.location.href = "https://liteshort.com/PREMIUM_SENSI";
     }
   </script>
 
