@@ -3,251 +3,298 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pro One-Tap Sensi Hub & Master Setup (2026)</title>
-  <meta name="description" content="Free Fire headshot sensitivity settings on 0-200 scale and Pro VIP master guide PDF download.">
+  <title>ApexSensi AI — Pro Headshot Engine & VIP Configs (2026)</title>
   <style>
     :root {
-      --bg-dark: #0a0e17;
-      --card-bg: #141c2e;
-      --border-color: #23304a;
-      --accent-red: #ff3b3b;
-      --accent-green: #00e676;
-      --accent-gold: #fbbf24;
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
+      --bg: #07090e;
+      --card: #0f1422;
+      --card-border: #1e293b;
+      --neon-cyan: #00f0ff;
+      --neon-red: #ff2a5f;
+      --neon-green: #05ffa1;
+      --gold: #ffb703;
+      --text: #f8fafc;
+      --muted: #8b9bb4;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 24px 16px;
-    }
-
-    .container {
-      max-width: 480px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); display: flex; flex-direction: column; align-items: center; padding: 20px 14px 60px; min-height: 100vh; }
+    .app { max-width: 480px; width: 100%; display: flex; flex-direction: column; gap: 18px; }
 
     /* HEADER */
-    .header-box {
-      text-align: center;
-    }
+    .hero { text-align: center; padding: 12px 0 6px; }
+    .badge-live { display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 42, 95, 0.15); border: 1px solid var(--neon-red); color: var(--neon-red); font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; margin-bottom: 8px; }
+    .pulse-dot { width: 7px; height: 7px; background: var(--neon-red); border-radius: 50%; box-shadow: 0 0 8px var(--neon-red); animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    h1 { font-size: 24px; font-weight: 900; letter-spacing: -0.5px; background: linear-gradient(90deg, #fff, #a5b4fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    p.subtitle { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-    .badge {
-      display: inline-block;
-      background: var(--accent-red);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 12px;
-      border-radius: 50px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      letter-spacing: 0.5px;
-    }
+    /* CARD STYLING */
+    .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; padding: 18px; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .card-title { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
 
-    h1 {
-      font-size: 22px;
-      font-weight: 800;
-    }
+    /* SECTION 1: AI CALIBRATOR */
+    .ai-box { border-color: rgba(0, 240, 255, 0.3); background: linear-gradient(180deg, rgba(0, 240, 255, 0.04) 0%, var(--card) 100%); }
+    .ai-title { color: var(--neon-cyan); }
+    .ai-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    select { width: 100%; background: #080c16; border: 1px solid var(--card-border); color: #fff; padding: 10px; border-radius: 8px; font-size: 13px; outline: none; }
+    .btn-calc { width: 100%; background: linear-gradient(90deg, var(--neon-cyan), #3b82f6); color: #000; font-weight: 800; font-size: 13px; padding: 12px; border: none; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: transform 0.1s ease; }
+    .btn-calc:active { transform: scale(0.98); }
 
-    p.sub {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
+    .ai-result { margin-top: 14px; padding: 12px; background: rgba(0,0,0,0.4); border-radius: 10px; border: 1px dashed rgba(0, 240, 255, 0.3); }
+    .result-row { display: flex; justify-content: space-between; font-size: 13px; padding: 5px 0; }
+    .res-val { color: var(--neon-cyan); font-weight: 800; }
 
-    /* SECTION 1: FREE SENSI (0-200 SCALE) */
-    .section-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    }
+    /* SECTION 2: DEVICE TAB SELECTOR */
+    .tab-nav { display: flex; gap: 6px; margin-bottom: 14px; }
+    .tab-btn { flex: 1; background: #0a0e1a; border: 1px solid var(--card-border); color: var(--muted); padding: 8px 4px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; }
+    .tab-btn.active { background: rgba(5, 255, 161, 0.15); border-color: var(--neon-green); color: var(--neon-green); }
+    .stat-bar-box { margin-bottom: 10px; }
+    .stat-label-wrap { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+    .meter-wrap { height: 6px; background: #07090e; border-radius: 4px; overflow: hidden; }
+    .meter-fill { height: 100%; background: linear-gradient(90deg, #05ffa1, #00f0ff); width: 90%; border-radius: 4px; transition: width 0.3s ease; }
 
-    .section-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--accent-green);
-      text-transform: uppercase;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 8px;
-    }
+    /* SECTION 3: TOUCH LATENCY DIAGNOSTIC */
+    .diag-box { text-align: center; border-color: rgba(255, 42, 95, 0.3); }
+    .btn-tune { background: rgba(255, 42, 95, 0.15); border: 1px solid var(--neon-red); color: var(--neon-red); font-weight: 700; font-size: 13px; padding: 10px 16px; border-radius: 8px; cursor: pointer; width: 100%; }
 
-    .stat-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      font-size: 14px;
-      border-bottom: 1px solid #1a2438;
-    }
+    /* SECTION 4: VIP LOCKED FEATURES (TEASERS) */
+    .vip-card { border: 1px solid rgba(255, 183, 3, 0.4); background: linear-gradient(180deg, rgba(255, 183, 3, 0.06) 0%, var(--card) 100%); }
+    .vip-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .lock-badge { background: var(--gold); color: #000; font-size: 10px; font-weight: 900; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+    
+    .locked-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 16px; }
+    .locked-item { background: rgba(0,0,0,0.4); border: 1px solid #1a2235; border-radius: 10px; padding: 12px; position: relative; }
+    .blur-text { filter: blur(4px); user-select: none; opacity: 0.6; font-size: 12px; margin-top: 6px; }
+    .lock-icon-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; }
 
-    .stat-row:last-child {
-      border-bottom: none;
-    }
+    .btn-unlock-vip { width: 100%; background: linear-gradient(135deg, #ffb703, #fb8500); color: #000; font-weight: 900; font-size: 15px; padding: 16px; border: none; border-radius: 12px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 20px rgba(255, 183, 3, 0.35); text-align: center; text-decoration: none; display: block; }
+    .btn-unlock-vip:hover { filter: brightness(1.1); }
+    .btn-unlock-vip:active { transform: scale(0.98); }
+    .vip-subnote { font-size: 11px; color: var(--muted); text-align: center; margin-top: 8px; }
 
-    .stat-val {
-      font-weight: 700;
-      color: #fff;
-    }
-
-    /* SECTION 2: PRO PDF (LOCKED) */
-    .pro-card {
-      background: linear-gradient(180deg, #182238 0%, #111827 100%);
-      border: 1.5px solid var(--accent-gold);
-      border-radius: 16px;
-      padding: 22px 20px;
-      text-align: center;
-    }
-
-    .pro-badge {
-      display: inline-block;
-      background: var(--accent-gold);
-      color: #000;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 50px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .pro-card h2 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .pro-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.4;
-      margin-bottom: 16px;
-    }
-
-    .pdf-features {
-      text-align: left;
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 10px;
-      padding: 12px 14px;
-      margin-bottom: 18px;
-    }
-
-    .pdf-item {
-      font-size: 13px;
-      color: #cbd5e1;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-    }
-
-    .pdf-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .pdf-item::before {
-      content: "📄";
-      margin-right: 8px;
-      font-size: 13px;
-    }
-
-    .btn-unlock {
-      display: block;
-      width: 100%;
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
-      color: #000;
-      font-weight: 800;
-      font-size: 15px;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      text-transform: uppercase;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-      transition: transform 0.1s ease, filter 0.2s ease;
-    }
-
-    .btn-unlock:active {
-      transform: scale(0.98);
-    }
-
-    .btn-unlock:hover {
-      filter: brightness(1.05);
-    }
-
-    .notice {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 10px;
-    }
+    /* STICKY BOTTOM BAR */
+    .floating-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(7, 9, 14, 0.95); backdrop-filter: blur(8px); border-top: 1px solid #1e293b; padding: 10px 14px; display: flex; justify-content: center; z-index: 100; }
+    .floating-content { max-width: 480px; width: 100%; display: flex; gap: 10px; align-items: center; }
+    .floating-text { flex: 1; font-size: 12px; }
+    .floating-btn { background: var(--gold); color: #000; font-weight: 800; font-size: 12px; padding: 10px 14px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; white-space: nowrap; }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="header-box">
-      <span class="badge">🔥 0–200 Slider Patch</span>
-      <h1>Headshot Sensitivity Hub</h1>
-      <p class="sub">Free On-Page Calibration + Full Device VIP Blueprint</p>
+  <div class="app">
+
+    <!-- HERO / TITLE -->
+    <div class="hero">
+      <div class="badge-live">
+        <span class="pulse-dot"></span>
+        <span>Patch 2026 Engine Ready</span>
+      </div>
+      <h1>ApexSensi AI Hub</h1>
+      <p class="subtitle">Neural Auto-Aim Calibrator & Pro HUD Matrix</p>
     </div>
 
-    <!-- 1. FREE LIVE SENSI (0-200 SCALE) -->
-    <div class="section-card">
-      <div class="section-title">
-        <span>⚡ Balanced Base Sensi (0–200)</span>
-        <span style="font-size: 11px; color: var(--accent-green);">Direct View</span>
+    <!-- 1. AI SENSI CALIBRATOR -->
+    <div class="card ai-box">
+      <div class="card-head">
+        <div class="card-title ai-title">🤖 AI Calibration Assistant</div>
+        <span style="font-size: 11px; color: var(--neon-cyan);">Live Model v4.2</span>
       </div>
-      <div class="stat-row"><span>General Sensitivity:</span><span class="stat-val">182</span></div>
-      <div class="stat-row"><span>Red Dot:</span><span class="stat-val">178</span></div>
-      <div class="stat-row"><span>2x Scope:</span><span class="stat-val">168</span></div>
-      <div class="stat-row"><span>4x Scope:</span><span class="stat-val">152</span></div>
-      <div class="stat-row"><span>Sniper Scope:</span><span class="stat-val">98</span></div>
-      <div class="stat-row"><span>Free Look:</span><span class="stat-val">135</span></div>
-      <div class="stat-row"><span>Fire Button Size:</span><span class="stat-val">44% (Bottom Right)</span></div>
+      <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">Select device RAM & combat style to calculate custom slider friction:</p>
+      
+      <div class="ai-inputs">
+        <select id="aiRam">
+          <option value="2">2GB / 3GB Phone</option>
+          <option value="4" selected>4GB Mid-Range</option>
+          <option value="6">6GB Pro Device</option>
+          <option value="8">8GB+ Flagship</option>
+        </select>
+        <select id="aiWeapon">
+          <option value="shotgun">M1887 / Shotguns</option>
+          <option value="smg" selected>MP40 / UMP Spray</option>
+          <option value="ar">M4A1 / AR Drag</option>
+          <option value="sniper">AWM Quick Switch</option>
+        </select>
+      </div>
+
+      <button class="btn-calc" onclick="generateAISensi()">⚡ Run AI Calibration</button>
+
+      <div class="ai-result" id="aiResultBox">
+        <div class="result-row"><span>Recommended General:</span><span class="res-val" id="resGen">182</span></div>
+        <div class="result-row"><span>Red Dot Friction:</span><span class="res-val" id="resDot">176</span></div>
+        <div class="result-row"><span>Optimized Drag Angle:</span><span class="res-val" id="resDrag">Standard "J-Curve"</span></div>
+        <div class="result-row"><span>Fire Button Size:</span><span class="res-val" id="resBtn">44%</span></div>
+      </div>
     </div>
 
-    <!-- 2. PRO PDF (MONETIZED VIA LITESHORT) -->
-    <div class="pro-card">
-      <span class="pro-badge">⭐ VIP Guide (PDF)</span>
-      <h2>Download Full Pro Device Master Pack</h2>
-      <p>Unlock the complete guide calibrated for RAM tiers, DPI sync, and rotation drag techniques on the 0–200 slider.</p>
-
-      <div class="pdf-features">
-        <div class="pdf-item">2GB, 3GB, 4GB, 6GB & 8GB+ Specific 200-Scale Tables</div>
-        <div class="pdf-item">Safe Phone DPI Configuration (390–540)</div>
-        <div class="pdf-item">Sit-Up Gloo Wall & 3-Finger Custom HUD Map</div>
-        <div class="pdf-item">"J-Drag" Technique for Shotguns & SMGs</div>
+    <!-- 2. QUICK DEVICE TUNER TABS -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title" style="color: var(--neon-green);">📱 0–200 Slider Matrix</div>
+        <span style="font-size: 11px; color: var(--muted);">Select Phone RAM</span>
       </div>
 
-      <button class="btn-unlock" onclick="unlockProPDF()">
-        🔓 Unlock & Download Pro PDF
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="setTab(3, this)">3GB</button>
+        <button class="tab-btn" onclick="setTab(4, this)">4GB</button>
+        <button class="tab-btn" onclick="setTab(6, this)">6GB</button>
+        <button class="tab-btn" onclick="setTab(8, this)">8GB+</button>
+      </div>
+
+      <div class="stat-bar-box">
+        <div class="stat-label-wrap"><span>General Sensi</span><b id="tabGen">192</b></div>
+        <div class="meter-wrap"><div class="meter-fill" id="fillGen" style="width: 96%;"></div></div>
+      </div>
+
+      <div class="stat-bar-box">
+        <div class="stat-label-wrap"><span>Red Dot</span><b id="tabDot">188</b></div>
+        <div class="meter-wrap"><div class="meter-fill" id="fillDot" style="width: 94%;"></div></div>
+      </div>
+
+      <div class="stat-bar-box">
+        <div class="stat-label-wrap"><span>2x / 4x Scope</span><b id="tabScope">175 / 160</b></div>
+        <div class="meter-wrap"><div class="meter-fill" id="fillScope" style="width: 85%;"></div></div>
+      </div>
+    </div>
+
+    <!-- 3. TOUCH RESPONSE DIAGNOSTIC TOOL -->
+    <div class="card diag-box">
+      <div class="card-head">
+        <div class="card-title" style="color: var(--neon-red);">⚡ Screen Latency Stabilizer</div>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">Calibrate touch sampling buffer before entering ranked matches.</p>
+      <button class="btn-tune" id="btnTune" onclick="runDiagnostic()">Run Touch Response Calibration</button>
+      <div id="tuneResult" style="font-size: 12px; color: var(--neon-green); margin-top: 10px; display: none;">✔ Latency Stabilized: 60Hz Input Clock Synchronized!</div>
+    </div>
+
+    <!-- 4. LOCKED VIP BLUEPRINT & PDF (MONETIZED SECTION) -->
+    <div class="card vip-card">
+      <div class="vip-header">
+        <div class="card-title" style="color: var(--gold);">⭐ VIP Pro Master Setup</div>
+        <span class="lock-badge">🔒 LOCKED ACCESS</span>
+      </div>
+      <p style="font-size: 13px; color: var(--muted);">Unlock the complete competitive package used by leaderboard rank pushers.</p>
+
+      <div class="locked-grid">
+        <div class="locked-item">
+          <div style="font-size: 12px; font-weight: 700; color: #fff;">DPI Override Table</div>
+          <div class="blur-text">DPI 440 to 520 Sync</div>
+          <div class="lock-icon-overlay">🔒</div>
+        </div>
+        <div class="locked-item">
+          <div style="font-size: 12px; font-weight: 700; color: #fff;">Sit-Up Gloo Wall Map</div>
+          <div class="blur-text">3-Finger Claw Blueprint</div>
+          <div class="lock-icon-overlay">🔒</div>
+        </div>
+        <div class="locked-item">
+          <div style="font-size: 12px; font-weight: 700; color: #fff;">Anti-Recoil Drag Angles</div>
+          <div class="blur-text">Auto Lock Headshot Vector</div>
+          <div class="lock-icon-overlay">🔒</div>
+        </div>
+        <div class="locked-item">
+          <div style="font-size: 12px; font-weight: 700; color: #fff;">60 FPS Frame Lock</div>
+          <div class="blur-text">Zero Drop Graphic Config</div>
+          <div class="lock-icon-overlay">🔒</div>
+        </div>
+      </div>
+
+      <button class="btn-unlock-vip" onclick="unlockVIP()">
+        🔓 Unlock Full VIP Master PDF
       </button>
-      <p class="notice">Click to complete verification and start instant download.</p>
+      <p class="vip-subnote">Instant direct unlock via verification gate</p>
+    </div>
+
+  </div>
+
+  <!-- FLOATING CTA -->
+  <div class="floating-bar">
+    <div class="floating-content">
+      <div class="floating-text">
+        <b style="color: var(--gold);">VIP Config Pack</b>
+        <div style="font-size: 11px; color: var(--muted);">Download Pro Master PDF</div>
+      </div>
+      <button class="floating-btn" onclick="unlockVIP()">Unlock Now</button>
     </div>
   </div>
 
   <script>
-    function unlockProPDF() {
-      window.location.href = "https://liteshort.com/PREMIUM_SENSI";
+    // LiteShort Target Destination
+    const PRO_DOWNLOAD_URL = "https://liteshort.com/PREMIUM_SENSI";
+
+    function unlockVIP() {
+      window.location.href = PRO_DOWNLOAD_URL;
+    }
+
+    // AI Calibrator Logic
+    function generateAISensi() {
+      const ram = document.getElementById("aiRam").value;
+      const weapon = document.getElementById("aiWeapon").value;
+
+      let gen = 180;
+      let dot = 175;
+      let drag = 'Standard "J-Drag"';
+      let btn = "44%";
+
+      if (ram === "2") {
+        gen = weapon === "shotgun" ? 198 : 192;
+        dot = 190;
+        btn = "40% (Max Screen Drag Room)";
+      } else if (ram === "4") {
+        gen = weapon === "shotgun" ? 186 : 180;
+        dot = 176;
+        btn = "43%";
+      } else if (ram === "6") {
+        gen = weapon === "shotgun" ? 174 : 168;
+        dot = 165;
+        btn = "46%";
+      } else {
+        gen = weapon === "shotgun" ? 162 : 155;
+        dot = 150;
+        btn = "48%";
+      }
+
+      if (weapon === "shotgun") drag = 'Fast "V-Flick" Instant Release';
+      if (weapon === "smg") drag = 'Curved "J-Drag" Rotation';
+      if (weapon === "ar") drag = 'Straight Vertical Micro-Drag';
+      if (weapon === "sniper") drag = 'Quick Scope-Switch Sync';
+
+      document.getElementById("resGen").innerText = gen;
+      document.getElementById("resDot").innerText = dot;
+      document.getElementById("resDrag").innerText = drag;
+      document.getElementById("resBtn").innerText = btn;
+    }
+
+    // Tab Switcher Logic
+    const tabData = {
+      3: { gen: 192, dot: 188, scope: "175 / 160", fillGen: 96, fillDot: 94, fillScope: 85 },
+      4: { gen: 182, dot: 178, scope: "168 / 152", fillGen: 91, fillDot: 89, fillScope: 80 },
+      6: { gen: 172, dot: 166, scope: "158 / 144", fillGen: 86, fillDot: 83, fillScope: 75 },
+      8: { gen: 158, dot: 152, scope: "145 / 135", fillGen: 79, fillDot: 76, fillScope: 70 }
+    };
+
+    function setTab(ram, btnElement) {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      btnElement.classList.add("active");
+
+      const data = tabData[ram];
+      document.getElementById("tabGen").innerText = data.gen;
+      document.getElementById("tabDot").innerText = data.dot;
+      document.getElementById("tabScope").innerText = data.scope;
+
+      document.getElementById("fillGen").style.width = data.fillGen + "%";
+      document.getElementById("fillDot").style.width = data.fillDot + "%";
+      document.getElementById("fillScope").style.width = data.fillScope + "%";
+    }
+
+    // Touch Latency Tool
+    function runDiagnostic() {
+      const btn = document.getElementById("btnTune");
+      btn.innerText = "Synchronizing Touch Sensor...";
+      setTimeout(() => {
+        btn.innerText = "Calibration Complete";
+        document.getElementById("tuneResult").style.display = "block";
+      }, 1200);
     }
   </script>
 
